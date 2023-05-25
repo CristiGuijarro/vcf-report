@@ -3,7 +3,6 @@ from collections import Counter
 
 import vcf
 
-
 class VCFReport:
     """
     Represents a VCF (Variant Call Format) file and provides methods to
