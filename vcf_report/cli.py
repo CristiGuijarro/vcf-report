@@ -1,3 +1,4 @@
+"""Click application to run the vcf-report functions"""
 import click
 
 from vcf_report.vcf import VCFReport
@@ -10,18 +11,17 @@ def cli():
 
 
 @cli.command(name="report")
-@click.argument("vcf")
 @click.option("--vcf", help="Path to vcf file", required=True)
 @click.option("--out", help="Path to desired output file", default="vcf_report.txt")
 def report_vcf(vcf: str, out: str) -> None:
-    """Runs the VCFReport `class` functions to write report
+    """Parse VCF and write report on VCF file
     \f
     Args:
         vcf (str): path to input vcf file
         out (str): path to output report file
     """
     vcf_file = vcf
-    report_file = "path/to/report.txt"
+    report_file = out
 
     vcf_obj = VCFReport(vcf_file)
     vcf_obj.parse_vcf()

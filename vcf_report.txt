@@ -1,0 +1,25 @@
+{
+    "VCF Metadata": {
+        "Number of samples": 3,
+        "VCF version": "VCFv4.3",
+        "VCF format": "GT"
+    },
+    "Variant Information": {
+        "Number of SNPs": 7880,
+        "Number of indels": 869,
+        "Substitution types": {
+            "del": 495,
+            "tv": 2332,
+            "ins": 374,
+            "ts": 5548
+        },
+        "Heterozygous variants": 10448,
+        "Homozygous variants": 15799,
+        "Variant distribution across chromosomes": {
+            "20": 8749
+        },
+        "Mutational processes": {
+            "null": 8749
+        }
+    }
+}

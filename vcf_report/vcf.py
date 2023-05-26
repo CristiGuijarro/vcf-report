@@ -1,7 +1,9 @@
 """Python class to report metadata, metrics and variant distribution from VCF"""
+import json
 from collections import Counter
 
 import vcf
+
 
 class VCFReport:
     """
@@ -49,7 +51,7 @@ class VCFReport:
             for sample in record.samples:
                 if sample.is_het:
                     heterozygous_variants += 1
-                elif sample.is_hom:
+                else:
                     homozygous_variants += 1
 
             variant_distribution[record.CHROM] += 1
@@ -70,27 +72,22 @@ class VCFReport:
         Args:
             report_file (str): Path to the report file.
         """
+        report_data = {
+            'VCF Metadata': {
+                'Number of samples': self.metadata['num_samples'],
+                'VCF version': self.metadata['vcf_version'],
+                'VCF format': self.metadata['vcf_format']
+            },
+            'Variant Information': {
+                'Number of SNPs': self.variant_info['snps'],
+                'Number of indels': self.variant_info['indels'],
+                'Substitution types': dict(self.variant_info['substitution_types']),
+                'Heterozygous variants': self.variant_info['heterozygous_variants'],
+                'Homozygous variants': self.variant_info['homozygous_variants'],
+                'Variant distribution across chromosomes': dict(self.variant_info['variant_distribution']),
+                'Mutational processes': dict(self.variant_info['mutational_processes'])
+            }
+        }
         with open(report_file, mode="w", encoding="utf8") as report:
-            report.write("VCF Metadata:\n")
-            report.write(f"Number of samples: {self.metadata['num_samples']}\n")
-            report.write(f"VCF version: {self.metadata['vcf_version']}\n")
-            report.write(f"VCF format: {self.metadata['vcf_format']}\n\n")
+            json.dump(report_data, report, indent=4)
 
-            report.write("Variant Information:\n")
-            report.write(f"Number of SNPs: {self.variant_info['snps']}\n")
-            report.write(f"Number of indels: {self.variant_info['indels']}\n")
-            report.write(
-                f"Substitution types: {self.variant_info['substitution_types']}\n"
-            )
-            report.write(
-                f"Heterozygous variants: {self.variant_info['heterozygous_variants']}\n"
-            )
-            report.write(
-                f"Homozygous variants: {self.variant_info['homozygous_variants']}\n"
-            )
-            report.write(
-                f"Variant distribution across chromosomes: {self.variant_info['variant_distribution']}\n"
-            )
-            report.write(
-                f"Mutational processes: {self.variant_info['mutational_processes']}\n"
-            )
