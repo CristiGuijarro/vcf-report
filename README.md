@@ -1,40 +1,73 @@
 # vcf-report
 
-[![PyPI](https://img.shields.io/pypi/v/vcf-report.svg)](https://pypi.org/project/vcf-report/)
-[![Changelog](https://img.shields.io/github/v/release/CristiGuijarro/vcf-report?include_prereleases&label=changelog)](https://github.com/CristiGuijarro/vcf-report/releases)
 [![Tests](https://github.com/CristiGuijarro/vcf-report/workflows/Test/badge.svg)](https://github.com/CristiGuijarro/vcf-report/actions?query=workflow%3ATest)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/CristiGuijarro/vcf-report/blob/master/LICENSE)
 
 Python application to report metadata and other metrics from a VCF
 
 ## Installation
 
-Install this tool using `pip`:
+1. Clone the repository:
 
-    pip install vcf-report
+   ```shell
+   git clone https://github.com/CristiGuijarro/vcf-report.git
+   ```
+
+2. Navigate to the project directory:
+
+    ```shell
+    cd vcf-report
+    ```
+
+3. Install the dependencies and test dependencies:
+
+    ```shell
+    pip install -e '.[test]'
+    ```
 
 ## Usage
 
 For help, run:
 
+    ```shell
     vcf-report --help
+    ```
 
 You can also use:
 
+    ```shell
     python -m vcf_report --help
+    ```
+
+Running the application to generate a report with a VCF file:
+
+    ```shell
+    vcf-report report --vcf <path_to_vcf_file> [--out <path_to_output_file>]
+    ```
+
+Arguments:
+
+`--vcf`: Path to the input VCF file. (Required)
+`--out`: Path to the desired output report file. (Optional, default: vcf_report.json)
+The application will parse the VCF file and generate a report with metadata and other metrics. The report will be saved in the specified output file.
 
 ## Development
 
 To contribute to this tool, first checkout the code. Then create a new virtual environment:
 
+    ```shell
     cd vcf-report
     python -m venv venv
     source venv/bin/activate
+    ```
 
 Now install the dependencies and test dependencies:
 
+    ```shell
     pip install -e '.[test]'
+    ```
 
 To run the tests:
 
+    ```shell
     pytest
+    ```

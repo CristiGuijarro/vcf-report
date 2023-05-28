@@ -2,7 +2,12 @@
     "VCF Metadata": {
         "Number of samples": 3,
         "VCF version": "VCFv4.3",
-        "VCF format": "GT"
+        "VCF format": "GT",
+        "File Date": "26022019_15h52m43s",
+        "Data Source": [
+            "IGSRpipeline"
+        ],
+        "Reference Genome": "ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa"
     },
     "Variant Information": {
         "Number of SNPs": 7880,
@@ -19,7 +24,7 @@
             "20": 8749
         },
         "Mutational processes": {
-            "null": 8749
+            "Total Processes": 324
         }
     }
 }

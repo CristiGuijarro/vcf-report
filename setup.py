@@ -32,6 +32,6 @@ setup(
         vcf-report=vcf_report.cli:cli
     """,
     install_requires=["click", "PyVCF3"],
-    extras_require={"test": ["pytest"]},
+    extras_require={"test": ["pytest", "pylint", "mypy"]},
     python_requires=">=3.7",
 )

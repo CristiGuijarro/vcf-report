@@ -12,7 +12,7 @@ def cli():
 
 @cli.command(name="report")
 @click.option("--vcf", help="Path to vcf file", required=True)
-@click.option("--out", help="Path to desired output file", default="vcf_report.txt")
+@click.option("--out", help="Path to desired output file", default="vcf_report.json")
 def report_vcf(vcf: str, out: str) -> None:
     """Parse VCF and write report on VCF file
     \f
