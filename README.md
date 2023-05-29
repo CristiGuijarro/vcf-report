@@ -28,21 +28,21 @@ Python application to report metadata and other metrics from a VCF
 
 For help, run:
 
-    ```shell
+```shell
     vcf-report --help
-    ```
+```
 
 You can also use:
 
-    ```shell
+```shell
     python -m vcf_report --help
-    ```
+```
 
 Running the application to generate a report with a VCF file:
 
-    ```shell
+```shell
     vcf-report report --vcf <path_to_vcf_file> [--out <path_to_output_file>]
-    ```
+```
 
 Arguments:
 
@@ -54,20 +54,20 @@ The application will parse the VCF file and generate a report with metadata and 
 
 To contribute to this tool, first checkout the code. Then create a new virtual environment:
 
-    ```shell
+```shell
     cd vcf-report
     python -m venv venv
     source venv/bin/activate
-    ```
+```
 
 Now install the dependencies and test dependencies:
 
-    ```shell
+```shell
     pip install -e '.[test]'
-    ```
+```
 
 To run the tests:
 
-    ```shell
+```shell
     pytest
-    ```
+```
