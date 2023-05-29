@@ -47,6 +47,7 @@ Running the application to generate a report with a VCF file:
 Arguments:
 
 `--vcf`: Path to the input VCF file. (Required)
+
 `--out`: Path to the desired output report file. (Optional, default: vcf_report.json)
 The application will parse the VCF file and generate a report with metadata and other metrics. The report will be saved in the specified output file.
 
